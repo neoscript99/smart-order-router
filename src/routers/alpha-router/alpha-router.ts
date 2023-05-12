@@ -195,7 +195,7 @@ export type AlphaRouterParams = {
 };
 
 export class MapWithLowerCaseKey<V> extends Map<string, V> {
-  override set(key: string, value: V): this {
+  set(key: string, value: V): this {
     return super.set(key.toLowerCase(), value);
   }
 }
@@ -310,7 +310,7 @@ export type AlphaRouterConfig = {
 
 export class AlphaRouter
   implements IRouter<AlphaRouterConfig>,
-    ISwapToRatio<AlphaRouterConfig, SwapAndAddConfig> {
+  ISwapToRatio<AlphaRouterConfig, SwapAndAddConfig> {
   protected chainId: ChainId;
   protected provider: BaseProvider;
   protected multicall2Provider: UniswapMulticallProvider;
@@ -561,7 +561,7 @@ export class AlphaRouter
     }
 
     let gasPriceProviderInstance: IGasPriceProvider;
-    if (JsonRpcProvider.isProvider(this.provider)) {
+    if (this.provider instanceof JsonRpcProvider) {
       gasPriceProviderInstance = new OnChainGasPriceProvider(
         chainId,
         new EIP1559GasPriceProvider(this.provider as JsonRpcProvider),
@@ -1479,8 +1479,8 @@ export class AlphaRouter
     routingConfig: AlphaRouterConfig
   ): [number[], CurrencyAmount[]] {
     const { distributionPercent } = routingConfig;
-    const percents = [];
-    const amounts = [];
+    const percents: number[] = [];
+    const amounts: CurrencyAmount[] = [];
 
     for (let i = 1; i <= 100 / distributionPercent; i++) {
       percents.push(i * distributionPercent);

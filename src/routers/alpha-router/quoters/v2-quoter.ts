@@ -163,7 +163,7 @@ export class V2Quoter extends BaseQuoter<V2Route> {
       MetricLoggerUnit.Count
     );
 
-    const routesWithValidQuotes = [];
+    const routesWithValidQuotes: V2RouteWithValidQuote[] = [];
 
     for (const routeWithQuote of routesWithQuotes) {
       const [route, quotes] = routeWithQuote;

@@ -176,7 +176,7 @@ export class MixedQuoter extends BaseQuoter<MixedRoute> {
       MetricLoggerUnit.Count
     );
 
-    const routesWithValidQuotes = [];
+    const routesWithValidQuotes: MixedRouteWithValidQuote[] = [];
 
     for (const routeWithQuote of routesWithQuotes) {
       const [route, quotes] = routeWithQuote;

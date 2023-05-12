@@ -132,7 +132,7 @@ export async function getHighestLiquidityV3USDPool(
     FeeAmount.LOWEST,
   ])
     .flatMap((feeAmount) => {
-      const pools = [];
+      const pools: Pool[] = [];
 
       for (const usdToken of usdTokens) {
         const pool = poolAccessor.getPool(wrappedCurrency, usdToken, feeAmount);
@@ -446,10 +446,10 @@ export function initSwapRouteFromExisting(
     blockNumber: BigNumber.from(swapRoute.blockNumber),
     methodParameters: swapRoute.methodParameters
       ? ({
-          calldata: swapRoute.methodParameters.calldata,
-          value: swapRoute.methodParameters.value,
-          to: swapRoute.methodParameters.to,
-        } as MethodParameters)
+        calldata: swapRoute.methodParameters.calldata,
+        value: swapRoute.methodParameters.value,
+        to: swapRoute.methodParameters.to,
+      } as MethodParameters)
       : undefined,
     simulationStatus: swapRoute.simulationStatus,
   };

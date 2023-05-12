@@ -1,3 +1,4 @@
+import { V2RouteWithValidQuote } from './../entities/route-with-valid-quote';
 import { Currency, Token, TradeType } from '@uniswap/sdk-core';
 import _ from 'lodash';
 
@@ -163,7 +164,7 @@ export class V3Quoter extends BaseQuoter<V3Route> {
       MetricLoggerUnit.Count
     );
 
-    const routesWithValidQuotes = [];
+    const routesWithValidQuotes: V3RouteWithValidQuote[] = [];
 
     for (const routeWithQuote of routesWithQuotes) {
       const [route, quotes] = routeWithQuote;
