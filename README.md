@@ -4,6 +4,12 @@ This repository contains routing logic for the Uniswap V3 protocol.
 
 It searches for the most efficient way to swap token A for token B, considering splitting swaps across multiple routes and gas costs.
 
+## Install and Build
+
+1. `npm i -g pnpm`
+1. `pnpm i`
+1. `pnpm build`
+
 ## Testing
 
 ### Unit Tests
